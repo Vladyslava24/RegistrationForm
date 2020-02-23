@@ -1,24 +1,25 @@
 package Controllers;
 
-import Model.Model;
+
+import Model.NoteBook;
 import Views.View;
 
 import java.util.Scanner;
 
 public class Controller {
-    Model model;
+    NoteBook noteBook;
     View view;
 
-    public Controller(Model model, View view) {
-        this.model = model;
+    public Controller(NoteBook noteBook, View view) {
+        this.noteBook = noteBook;
         this.view = view;
     }
     public void processUser(){
         Scanner sc = new Scanner(System.in);
+        NoteBook noteBook = new NoteBook();
         //UtilityMethod.inputWithScanner(sc);
         InputNoteNoteBook inputNoteNoteBook =
-                new InputNoteNoteBook(view, sc);
-        inputNoteNoteBook.inputNote();
-
+                new InputNoteNoteBook(noteBook, view, sc);
+        noteBook  =  inputNoteNoteBook.inputNote();
     }
 }
