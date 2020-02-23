@@ -9,8 +9,8 @@ public class View implements StringConstant {
     public static final ResourceBundle bundle =
             ResourceBundle.getBundle(
                     MESSAGES_BUNDLE_NAME,
-                    //new Locale("ua", "UA"));
-                    new Locale("en"));
+                    new Locale("ua", "UA"));
+                    //new Locale("en"));
 
     //Utilities methods
     /**
@@ -45,5 +45,19 @@ public class View implements StringConstant {
                 bundle.getString(WRONG_INPUT_DATA),
                 bundle.getString(INPUT_STRING_DATA),
                 bundle.getString(message)));
+    }
+
+    public String getAdress(String...message){
+        StringBuilder concatString = new StringBuilder();
+        for(String v : message){
+            concatString = concatString.append(v+' ');
+        }
+        return new String(concatString);
+    }
+
+   public String printFormName(String surname, String name){
+        StringBuilder concatString = new StringBuilder();
+        concatString = concatString.append(surname+' '+name.charAt(0)+'.');
+        return new String(concatString);
     }
 }
